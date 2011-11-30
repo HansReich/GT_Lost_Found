@@ -4,8 +4,6 @@ Datetime found
 Item
  - restricted number of categories on app
 Description
- - public (generic)
- - secret (more unique details)
 Pickup Location
  - fk
 Contact phone
