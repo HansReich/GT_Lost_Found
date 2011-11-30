@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, GTLost_FoundActivity!</string>
+    <string name="app_name">GTLost_Found</string>
+
+</resources>
