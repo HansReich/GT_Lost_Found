@@ -45,13 +45,12 @@
 	    android:layout_marginTop="30dp"
 	    android:layout_below="@id/edlostitem" />
     
-    <EditText 
-	    android:id="@+id/edlostdate" 
-	    android:layout_width="250dp"
-	    android:layout_height="wrap_content"
-	    android:layout_centerHorizontal="true"
-	    android:inputType="date"
-	    android:layout_below="@id/date" />
+    <DatePicker
+        android:id="@+id/eddate"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/date"
+        android:layout_centerHorizontal="true" />
     
     <Button 
 	    android:text="Search" 
@@ -60,6 +59,6 @@
 	    android:layout_height="wrap_content"
 	    android:layout_marginTop="50dp"
 	    android:layout_centerHorizontal="true"
-	    android:layout_below="@id/edlostdate" />
+	    android:layout_below="@id/eddate" />
     
 </RelativeLayout>
