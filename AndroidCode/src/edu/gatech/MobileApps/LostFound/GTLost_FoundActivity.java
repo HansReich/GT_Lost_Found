@@ -1,6 +1,5 @@
 package edu.gatech.MobileApps.LostFound;
 
-import android.app.Activity;
 import android.os.Bundle;
 
 public class GTLost_FoundActivity extends CustomActivity {
