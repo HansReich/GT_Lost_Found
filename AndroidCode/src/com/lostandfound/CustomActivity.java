@@ -13,6 +13,7 @@ private static String TAG = "CustomActivity";
 		
 		//set the theme of the activity
 		setTheme(R.style.MainTheme);
+		Log.d(TAG, "set the theme");
 	}
 	
 	public SharedPreferences getPreferences() {

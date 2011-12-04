@@ -1,22 +1,24 @@
 package com.lostandfound;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 
 // TODO: Auto-generated Javadoc
 /**
  * The Class Lost.
  */
-public class Lost extends CustomActivity implements View.OnClickListener{
+public class SearchLostActivity extends CustomActivity implements View.OnClickListener{
 	
 	/** The lostlocation. */
 	EditText lostlocation;
 	/** The lostItem. */
 	EditText lostitem;
 	/** The lostdate. */
-	EditText lostdate;
+	DatePicker lostdate;
 	
 	/** The button for executing query. */
 	Button query;
@@ -39,20 +41,20 @@ public class Lost extends CustomActivity implements View.OnClickListener{
 	private void initializeVars(){
 		lostlocation = (EditText)findViewById(R.id.edlostlocation);
 		lostitem = (EditText) findViewById(R.id.edlostitem);
-		lostdate = (EditText) findViewById(R.id.edlostdate);
-		query = (Button) findViewById(R.id.qurey);
+		lostdate = (DatePicker) findViewById(R.id.eddate);
+		query = (Button) findViewById(R.id.search);
 	}
 
 
 	public void onClick(View v) {
-		/*// TODO Auto-generated method stub
+		// TODO Auto-generated method stub
 		try{
 		Class ourClass = Class.forName("com.lostandfound.HttpParseJSON");
-		Intent ourIntent = new Intent(ourClass);
+		Intent ourIntent = new Intent(SearchLostActivity.this, ourClass);
 		startActivity(ourIntent);
 		}catch(ClassNotFoundException e){
 			e.printStackTrace();
-		}*/
+		}
 	}
 
 }

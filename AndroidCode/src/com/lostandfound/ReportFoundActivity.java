@@ -1,12 +1,17 @@
 package com.lostandfound;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TimePicker;
 
-public class Found extends CustomActivity implements View.OnClickListener{
-	EditText foundlocation, item, date, time, picklocation, email, phone, description;
+public class ReportFoundActivity extends CustomActivity implements View.OnClickListener{
+	EditText foundlocation, item, picklocation, email, phone, description;
+	DatePicker date;
+	TimePicker time;
 	Button submit;
 	
 	/* (non-Javadoc)
@@ -18,14 +23,15 @@ public class Found extends CustomActivity implements View.OnClickListener{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.found);
 		initializeVars();
+		//Insertion();
 		submit.setOnClickListener(this);
 	}
 	
 	private void initializeVars(){
 		foundlocation = (EditText)findViewById(R.id.edfoundlocation);
 		item = (EditText) findViewById(R.id.editem);
-		date = (EditText) findViewById(R.id.eddate);
-		time = (EditText) findViewById(R.id.edtime);
+		date = (DatePicker) findViewById(R.id.eddate);
+		time = (TimePicker) findViewById(R.id.edtime);
 		picklocation = (EditText) findViewById(R.id.edpickuplocation);
 		email = (EditText) findViewById(R.id.edemail);
 		phone = (EditText) findViewById(R.id.edphone);
@@ -35,7 +41,13 @@ public class Found extends CustomActivity implements View.OnClickListener{
 
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
-		
+		try{
+			Class ourClass = Class.forName("com.lostandfound.Submit");
+			Intent ourIntent = new Intent(ReportFoundActivity.this, ourClass);
+			startActivity(ourIntent);
+			}catch(ClassNotFoundException e){
+				e.printStackTrace();
+			}		
 	}
 
 }
