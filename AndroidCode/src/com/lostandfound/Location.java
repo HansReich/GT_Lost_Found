@@ -8,20 +8,56 @@ package com.lostandfound;
  *
  */
 public class Location {
-   private int xCoord, yCoord, buildNum;
+   private int buildNum;
+   private double xCoord, yCoord;
    private String name, phoneNum, email;
+   
+   //static arrays to use as a database of sorts
+   private static String[] buildNames = null;
+   private static Location[] buildings = null;
+   
+   /** constructor for a location*/
+   public Location(String name, String phone, String email, double xCoord, double yCoord, int buildingNumber) {
+	   this.name = name;
+	   phoneNum = phone;
+	   this.email = email;
+	   this.xCoord = xCoord;
+	   this.yCoord = yCoord;
+	   this.buildNum = buildingNumber;
+   }
+   
+   /**builds an array of locations if it doesn't already exist*/
+   public static void buildLocations() {
+	   if(buildings == null) {
+		   buildings = new Location[6];
+		   
+		   //add in a few basic locations, eventually this would pull from a database
+		   buildings[0] = new Location("College of Computing", "555-5555", 
+				   "LostAndFound@cc.gatech.edu", -84.3974, 33.7774, 50);
+		   buildings[1] = new Location("Klaus Advanced Computing Building", "555-5555", 
+				   "KlausLostAndFound@cc.gatech.edu", -84.39806, 33.784284, 1);
+		   buildings[2] = new Location("Campus Recreation Center", "555-5555", 
+				   "CRCLostAndFound@gatech.edu", -84.4032, 33.7755, 122);
+		   buildings[3] = new Location("GTRI", "555-5555", 
+				   "LostAndFound@gtri.gatech.edu", -84.4027, 33.771, 136);
+		   buildings[4] = new Location("Technology Square Research Building", "555-5555", 
+				   "LostAndFound@tsrb.gatech.edu", -84.3901, 33.7773, 175);
+		   buildings[5] = new Location("Library and Information Center", "555-5555", 
+				   "LibraryLostAndFound@gatech.edu", -84.3958, 33.7744, 77);
+	   }
+   }
        
-    public int getxCoord() {
+    public double getxCoord() {
         return xCoord;
     }
-    public void setxCoord(int xCoord) {
+    public void setxCoord(double xCoord) {
         this.xCoord = xCoord;
     }
     
-    public int getyCoord() {
+    public double getyCoord() {
         return yCoord;
     }
-    public void setyCoord(int yCoord) {
+    public void setyCoord(double yCoord) {
         this.yCoord = yCoord;
     }
     
