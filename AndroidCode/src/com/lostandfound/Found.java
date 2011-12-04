@@ -1,12 +1,11 @@
 package com.lostandfound;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class Found extends Activity implements View.OnClickListener{
+public class Found extends CustomActivity implements View.OnClickListener{
 	EditText foundlocation, item, date, time, picklocation, email, phone, description;
 	Button submit;
 	
@@ -14,7 +13,7 @@ public class Found extends Activity implements View.OnClickListener{
 	 * @see android.app.Activity#onCreate(android.os.Bundle)
 	 */
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.found);
