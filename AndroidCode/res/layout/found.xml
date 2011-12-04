@@ -93,6 +93,7 @@
 			    android:layout_height="wrap_content" 
 			    android:layout_width="250dp"
 			    android:lines="4"
+			    android:inputType="textMultiLine"
 			    android:layout_centerHorizontal="true"
 		    	android:layout_below="@id/description" />
 		    

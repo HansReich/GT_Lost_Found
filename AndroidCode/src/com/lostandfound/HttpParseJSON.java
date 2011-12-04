@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class HttpParseJSON extends CustomActivity{
+	private static final String TAG = "HttpParseJSON";
 	TextView httpStuff;
 	HttpClient client;
 	JSONObject json;
@@ -37,16 +38,12 @@ public class HttpParseJSON extends CustomActivity{
 		try {
 			this.lastlostfound("");
 		} catch (ClientProtocolException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Log.e(TAG, e.getMessage());
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Log.e(TAG, e.getMessage());
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Log.e(TAG, e.getMessage());
 		}
-		//new Read().execute("publicdes");
 	}
 	
 	public void lastlostfound(String username)throws ClientProtocolException, IOException, JSONException{
@@ -83,7 +80,7 @@ public class HttpParseJSON extends CustomActivity{
 				}
 			}
 		} else {
-			Toast.makeText(HttpParseJSON.this, "error", Toast.LENGTH_LONG);
+			Toast.makeText(HttpParseJSON.this, "error", Toast.LENGTH_LONG).show();
 		}
 	}
 

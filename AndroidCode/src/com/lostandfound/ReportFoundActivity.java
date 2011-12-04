@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.TimePicker;
 
 public class ReportFoundActivity extends CustomActivity implements View.OnClickListener{
+	private static final String TAG = "ReportFoundActivity";
+	
 	EditText foundlocation, item, picklocation, email, phone, description;
 	DatePicker date;
 	TimePicker time;
@@ -23,11 +25,12 @@ public class ReportFoundActivity extends CustomActivity implements View.OnClickL
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.found);
 		initializeVars();
-		//Insertion();
 		submit.setOnClickListener(this);
 	}
 	
+	/** sets up the global variables so we can use them*/
 	private void initializeVars(){
+		//assign all of the fields on the screen to a variable for use
 		foundlocation = (EditText)findViewById(R.id.edfoundlocation);
 		item = (EditText) findViewById(R.id.editem);
 		date = (DatePicker) findViewById(R.id.eddate);
@@ -45,9 +48,9 @@ public class ReportFoundActivity extends CustomActivity implements View.OnClickL
 			Class ourClass = Class.forName("com.lostandfound.Submit");
 			Intent ourIntent = new Intent(ReportFoundActivity.this, ourClass);
 			startActivity(ourIntent);
-			}catch(ClassNotFoundException e){
-				e.printStackTrace();
-			}		
+		}catch(ClassNotFoundException e){
+			Log.e(TAG, e.getMessage());
+		}		
 	}
 
 }
