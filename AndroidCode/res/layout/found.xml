@@ -1,93 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  android:layout_height="match_parent" 
-  android:layout_width="match_parent" 
-  android:orientation="vertical" android:weightSum="1">  
-    <TextView 
-    android:id="@+id/foundlocation" 
-    android:layout_weight="0.04" 
-    android:layout_width="wrap_content" 
-    android:text="Found Location" 
-    android:layout_height="wrap_content"></TextView>
-    <EditText 
-    android:id="@+id/edfoundlocation" 
-    android:layout_width="match_parent" 
-    android:layout_height="wrap_content">
-    </EditText>
-    <TextView 
-    android:id="@+id/item" 
-    android:layout_weight="0.04" 
-    android:layout_width="wrap_content" 
-    android:text="Found Item" 
-    android:layout_height="wrap_content"></TextView>
-    <EditText 
-    android:id="@+id/editem" 
-    android:layout_width="match_parent" 
-    android:layout_height="wrap_content" 
-    android:layout_weight="0.04"></EditText>
-    <TextView 
-    android:id="@+id/date" 
-    android:layout_weight="0.04" 
-    android:layout_width="wrap_content" 
-    android:text="Found Date" 
-    android:layout_height="wrap_content"></TextView>
-    <EditText android:id="@+id/eddate" 
-    android:layout_width="match_parent" 
-    android:layout_height="wrap_content" 
-    android:layout_weight="0.04"></EditText>
-    <TextView android:id="@+id/time" 
-    android:layout_weight="0.04" 
-    android:layout_width="wrap_content" 
-    android:text="TextView" 
-    android:layout_height="wrap_content"></TextView>
-    <EditText android:id="@+id/edtime" 
-    android:layout_width="match_parent" 
-    android:layout_height="wrap_content" 
-    android:layout_weight="0.04"></EditText>
-    <TextView android:id="@+id/description" 
-    android:layout_weight="0.04" 
-    android:layout_width="wrap_content" 
-    android:text="Item Description" 
-    android:layout_height="wrap_content"></TextView>
-    <EditText android:id="@+id/eddescription" 
-    android:layout_width="match_parent" 
-    android:layout_height="wrap_content" 
-    android:layout_weight="0.04"></EditText>
-    <TextView android:id="@+id/email" 
-    android:layout_weight="0.04" 
-    android:layout_width="wrap_content" 
-    android:text="Contact Email" 
-    android:layout_height="wrap_content"></TextView>
-    <EditText 
-    android:id="@+id/edemail" 
-    android:layout_width="match_parent" 
-    android:layout_height="wrap_content" 
-    android:layout_weight="0.04"></EditText>
-    <TextView android:id="@+id/phone" 
-    android:layout_weight="0.04" 
-    android:layout_width="wrap_content" 
-    android:text="Contact Phone" 
-    android:layout_height="wrap_content"></TextView>
-    <EditText android:id="@+id/edphone" 
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content" 
-    android:layout_weight="0.04"></EditText>
-    <TextView 
-    android:id="@+id/pickuplocation" 
-    android:layout_weight="0.04" 
-    android:layout_width="wrap_content" 
-    android:text="Pick up Location" 
-    android:layout_height="wrap_content"></TextView>
-    <EditText 
-    android:id="@+id/edpickuplocation" 
-    android:layout_width="match_parent" 
-    android:layout_height="wrap_content" 
-    android:layout_weight="0.04"></EditText>
-    <Button 
-    android:layout_weight="0.04" 
-    android:layout_width="wrap_content" 
-    android:text="Submit" 
-    android:id="@+id/submit" 
-    android:layout_height="wrap_content"></Button>
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    
+    <ScrollView 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+		<RelativeLayout
+			xmlns:android="http://schemas.android.com/apk/res/android"
+			android:layout_height="wrap_content" 
+			android:layout_width="match_parent" 
+			android:orientation="vertical"
+			android:scrollbars="vertical" >"
+		    
+		    <TextView 
+			    android:id="@+id/foundlocation"
+			    android:layout_width="wrap_content" 
+			    android:text="Found Location" 
+			    android:layout_height="wrap_content"
+			    android:layout_centerHorizontal="true"
+		    	android:layout_marginTop="20dp" />
+		    
+		    <EditText 
+			    android:id="@+id/edfoundlocation" 
+			    android:layout_height="wrap_content"
+			    android:layout_width="250dp" 
+			    android:layout_centerHorizontal="true"
+			    android:singleLine="true"
+		    	android:layout_below="@id/foundlocation" />
+		    
+		    <TextView 
+			    android:id="@+id/item" 
+			    android:layout_width="wrap_content" 
+			    android:text="Found Item" 
+			    android:layout_height="wrap_content"
+			    android:layout_centerHorizontal="true"
+		    	android:layout_below="@id/edfoundlocation"
+		    	android:layout_marginTop="20dp" />
+		    
+			<EditText 
+			    android:id="@+id/editem" 
+			    android:layout_height="wrap_content" 
+			    android:layout_width="250dp" 
+			    android:layout_centerHorizontal="true"
+			    android:singleLine="true"
+		    	android:layout_below="@id/item" />
+			
+		    <TextView 
+			    android:id="@+id/date" 
+			    android:layout_width="wrap_content" 
+			    android:text="Found Date" 
+			    android:layout_height="wrap_content"
+			    android:layout_centerHorizontal="true"
+		    	android:layout_marginTop="20dp"
+		    	android:layout_below="@id/editem" />
+		    
+		    <DatePicker
+		        android:id="@+id/eddate"
+		        android:layout_width="250dp"
+		        android:layout_height="wrap_content"
+		        android:layout_below="@id/date"
+		        android:layout_centerHorizontal="true" />
+		    
+		    <TextView 
+		        android:id="@+id/time" 
+			    android:layout_width="wrap_content" 
+			    android:text="Time Found" 
+			    android:layout_height="wrap_content"
+			    android:layout_centerHorizontal="true"
+		    	android:layout_marginTop="20dp"
+		    	android:layout_below="@id/eddate" />
+
+		    <TimePicker
+		        android:id="@+id/edtime"
+		        android:layout_width="250dp"
+		        android:layout_height="wrap_content"
+			    android:layout_centerHorizontal="true"
+		        android:layout_below="@+id/time" />
+		    
+		    <TextView 
+		        android:id="@+id/description" 
+			    android:layout_width="wrap_content" 
+			    android:text="Item Description" 
+			    android:layout_height="wrap_content"
+			    android:layout_centerHorizontal="true"
+		    	android:layout_marginTop="20dp"
+		    	android:layout_below="@id/edtime" />
+		    
+		    <EditText 
+		        android:id="@+id/eddescription" 
+			    android:layout_height="wrap_content" 
+			    android:layout_width="250dp"
+			    android:lines="4"
+			    android:layout_centerHorizontal="true"
+		    	android:layout_below="@id/description" />
+		    
+		    <TextView 
+		        android:id="@+id/email" 
+			    android:layout_width="wrap_content" 
+			    android:text="Contact Email" 
+			    android:layout_height="wrap_content"
+			    android:layout_centerHorizontal="true"
+		    	android:layout_marginTop="20dp"
+		    	android:layout_below="@id/eddescription" />
+		    
+		    <EditText 
+			    android:id="@+id/edemail" 
+			    android:layout_height="wrap_content" 
+			    android:layout_width="250dp" 
+			    android:layout_centerHorizontal="true"
+			    android:inputType="textEmailAddress"
+			    android:singleLine="true"
+		    	android:layout_below="@id/email" />
+		    
+		    <TextView 
+		        android:id="@+id/phone" 
+			    android:layout_width="wrap_content" 
+			    android:text="Contact Phone" 
+			    android:layout_height="wrap_content"
+			    android:layout_centerHorizontal="true"
+		    	android:layout_marginTop="20dp"
+		    	android:layout_below="@id/edemail" />
+		    
+		    <EditText 
+		        android:id="@+id/edphone" 
+			    android:layout_height="wrap_content" 
+			    android:layout_width="250dp" 
+			    android:layout_centerHorizontal="true"
+			    android:inputType="phone"
+			    android:singleLine="true"
+		    	android:layout_below="@id/phone" />
+		    
+		    <TextView 
+			    android:id="@+id/pickuplocation" 
+			    android:layout_width="wrap_content" 
+			    android:text="Pick up Location" 
+			    android:layout_height="wrap_content"
+			    android:layout_centerHorizontal="true"
+		    	android:layout_marginTop="20dp"
+		    	android:layout_below="@id/edphone" />
+		    
+		    <EditText 
+			    android:id="@+id/edpickuplocation" 
+			    android:layout_height="wrap_content" 
+			    android:layout_width="250dp" 
+			    android:layout_centerHorizontal="true"
+			    android:singleLine="true"
+		    	android:layout_below="@id/pickuplocation" />
+		    
+		    <Button 
+		        android:id="@+id/submit" 
+			    android:text="Submit" 
+			    android:layout_width="130dp" 
+			    android:layout_height="wrap_content"
+			    android:layout_centerHorizontal="true"
+		    	android:layout_marginTop="30dp"
+		    	android:layout_below="@id/edpickuplocation" />
+		    
+		</RelativeLayout>
+	</ScrollView>
 </LinearLayout>
