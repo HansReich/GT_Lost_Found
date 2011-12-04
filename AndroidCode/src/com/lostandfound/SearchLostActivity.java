@@ -1,5 +1,6 @@
 package com.lostandfound;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -45,14 +46,14 @@ public class SearchLostActivity extends CustomActivity implements View.OnClickLi
 
 
 	public void onClick(View v) {
-		/*// TODO Auto-generated method stub
+		// TODO Auto-generated method stub
 		try{
 		Class ourClass = Class.forName("com.lostandfound.HttpParseJSON");
-		Intent ourIntent = new Intent(ourClass);
+		Intent ourIntent = new Intent(SearchLostActivity.this, ourClass);
 		startActivity(ourIntent);
 		}catch(ClassNotFoundException e){
 			e.printStackTrace();
-		}*/
+		}
 	}
 
 }

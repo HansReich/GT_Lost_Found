@@ -1,5 +1,6 @@
 package com.lostandfound;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +23,7 @@ public class ReportFoundActivity extends CustomActivity implements View.OnClickL
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.found);
 		initializeVars();
+		//Insertion();
 		submit.setOnClickListener(this);
 	}
 	
@@ -39,7 +41,13 @@ public class ReportFoundActivity extends CustomActivity implements View.OnClickL
 
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
-		
+		try{
+			Class ourClass = Class.forName("com.lostandfound.Submit");
+			Intent ourIntent = new Intent(ReportFoundActivity.this, ourClass);
+			startActivity(ourIntent);
+			}catch(ClassNotFoundException e){
+				e.printStackTrace();
+			}		
 	}
 
 }
