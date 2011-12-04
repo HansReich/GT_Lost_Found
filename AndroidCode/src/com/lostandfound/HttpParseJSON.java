@@ -14,12 +14,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.os.Bundle;
+import android.widget.ExpandableListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class HttpParseJSON extends CustomActivity{
 	private static final String TAG = "HttpParseJSON";
 	TextView httpStuff;
+	ExpandableListView exListV;
 	HttpClient client;
 	JSONObject json;
 	
