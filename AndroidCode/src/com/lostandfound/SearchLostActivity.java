@@ -9,7 +9,7 @@ import android.widget.EditText;
 /**
  * The Class Lost.
  */
-public class Lost extends CustomActivity implements View.OnClickListener{
+public class SearchLostActivity extends CustomActivity implements View.OnClickListener{
 	
 	/** The lostlocation. */
 	EditText lostlocation;

@@ -1,5 +1,6 @@
 package com.lostandfound;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -38,14 +39,22 @@ public class MainMenuActivity extends CustomActivity {
     /** what to do when reportFound button is clicked*/
     private OnClickListener myFoundListener = new OnClickListener() {
         public void onClick(View v) {
-            //TODO
+        	//make the intent to call the new screen
+            Intent newScreen = new Intent(getBaseContext(), ReportFoundActivity.class);
+            
+            //start the new activity
+            MainMenuActivity.this.startActivity(newScreen);
         }
     };
     
     /** what to do when searchLost button is clicked*/
     private OnClickListener myLostListener = new OnClickListener() {
         public void onClick(View v) {
-            //TODO
+        	//make the intent to call the new screen
+            Intent newScreen = new Intent(getBaseContext(), SearchLostActivity.class);
+            
+            //start the new activity
+            MainMenuActivity.this.startActivity(newScreen);
         }
     };
 }
