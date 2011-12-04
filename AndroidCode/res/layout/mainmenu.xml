@@ -20,7 +20,7 @@
         android:text="Search for what you lost"
         android:textSize="18sp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp" />
+        android:layout_marginTop="150dp" />
     
     <Button 
         android:id="@+id/FoundButton"
