@@ -1,45 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  android:orientation="vertical"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent">
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+    
     <TextView 
-    android:text="Lost Location" 
-    android:id="@+id/location" 
-    android:layout_width="wrap_content" 
-    android:layout_height="wrap_content"></TextView>
+    	android:text="Lost Location" 
+    	android:id="@+id/location" 
+    	android:layout_width="wrap_content" 
+    	android:layout_height="wrap_content" />
     
     <EditText 
-    android:id="@+id/edlostlocation" 
-    android:layout_width="match_parent" 
-    android:layout_height="wrap_content">
-    </EditText>
+    	android:id="@+id/edlostlocation" 
+    	android:layout_width="match_parent" 
+    	android:layout_height="wrap_content"
+    	android:layout_below="@id/location" />
+    
     <TextView 
-    android:text="Lost Item" 
-    android:id="@+id/item" 
-    android:layout_width="wrap_content" 
-    android:layout_height="wrap_content"></TextView>
+    	android:text="Lost Item" 
+    	android:id="@+id/item" 
+    	android:layout_width="wrap_content" 
+    	android:layout_height="wrap_content"
+    	android:layout_below="@id/edlostlocation" />
     
     <EditText 
-    android:id="@+id/edlostitem" 
-    android:layout_width="match_parent" 
-    android:layout_height="wrap_content"></EditText>
+	    android:id="@+id/edlostitem" 
+	    android:layout_width="match_parent" 
+	    android:layout_height="wrap_content"
+	    android:layout_below="@id/item" />
+    
     <TextView 
-    android:text="Lost Date" 
-    android:id="@+id/date" 
-    android:layout_width="wrap_content" 
-    android:layout_height="wrap_content"></TextView>
+	    android:text="Lost Date" 
+	    android:id="@+id/date" 
+	    android:layout_width="wrap_content" 
+	    android:layout_height="wrap_content"
+	    android:layout_below="@id/edlostitem" />
     
     <EditText 
-    android:id="@+id/edlostdate" 
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"></EditText>
+	    android:id="@+id/edlostdate" 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@id/date" />
     
     <Button 
-    android:text="Query" 
-    android:id="@+id/qurey" 
-    android:layout_width="wrap_content" 
-    android:layout_height="wrap_content"></Button>
+	    android:text="Query" 
+	    android:id="@+id/query" 
+	    android:layout_width="wrap_content" 
+	    android:layout_height="wrap_content"
+	    android:layout_below="@id/edlostdate" />
     
-</LinearLayout>
+</RelativeLayout>
