@@ -1,5 +1,6 @@
 package com.lostandfound;
 
+import android.app.Activity;
 import android.os.Bundle;
 
 public class LostAndFoundActivity extends Activity {

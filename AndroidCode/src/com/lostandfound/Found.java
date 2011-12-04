@@ -34,7 +34,6 @@ public class Found extends Activity implements View.OnClickListener{
 		submit = (Button) findViewById(R.id.submit);
 	}
 
-	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		

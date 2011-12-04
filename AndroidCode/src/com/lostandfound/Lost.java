@@ -30,7 +30,6 @@ public class Lost  extends Activity implements View.OnClickListener{
 		query = (Button) findViewById(R.id.qurey);
 	}
 
-	@Override
 	public void onClick(View v) {
 		/*// TODO Auto-generated method stub
 		try{
