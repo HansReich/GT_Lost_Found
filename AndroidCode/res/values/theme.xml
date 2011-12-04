@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+     <style name="MainTheme" >
+        <item name="android:textColor">@color/gold</item>
+        <item name="android:background">@color/gtblue</item>
+     </style>
+</resources>

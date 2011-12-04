@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hello">Hello World, LostAndFoundActivity!</string>
+    <string name="greeting">Welcome to GT Lost and Found!</string>
     <string name="app_name">LostAndFound</string>
 </resources>
