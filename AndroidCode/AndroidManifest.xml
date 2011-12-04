@@ -38,6 +38,22 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        
+        <activity android:name=".HttpParseJSON"
+                  android:label="@string/app_name">
+        <intent-filter>
+                <action android:name="com.lostandfound.HttpParseJSON" />
+                <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter>
+        </activity>
+        
+        <activity android:name=".Submit"
+                  android:label="@string/app_name">
+        <intent-filter>
+                <action android:name="com.lostandfound.Submit" />
+                <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter>
+        </activity>
 
     </application>
 </manifest>

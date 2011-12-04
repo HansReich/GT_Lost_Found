@@ -32,14 +32,14 @@ public class Lost  extends Activity implements View.OnClickListener{
 
 	@Override
 	public void onClick(View v) {
-		/*// TODO Auto-generated method stub
+		// TODO Auto-generated method stub
 		try{
 		Class ourClass = Class.forName("com.lostandfound.HttpParseJSON");
-		Intent ourIntent = new Intent(ourClass);
+		Intent ourIntent = new Intent(Lost.this, ourClass);
 		startActivity(ourIntent);
 		}catch(ClassNotFoundException e){
 			e.printStackTrace();
-		}*/
+		}
 	}
 
 }
