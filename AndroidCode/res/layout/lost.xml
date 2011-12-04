@@ -9,12 +9,15 @@
     	android:text="Lost Location" 
     	android:id="@+id/location" 
     	android:layout_width="wrap_content" 
-    	android:layout_height="wrap_content" />
+    	android:layout_height="wrap_content"
+    	android:layout_centerHorizontal="true"
+    	android:layout_marginTop="30dp" />
     
     <EditText 
     	android:id="@+id/edlostlocation" 
-    	android:layout_width="match_parent" 
+    	android:layout_width="250dp" 
     	android:layout_height="wrap_content"
+    	android:layout_centerHorizontal="true"
     	android:layout_below="@id/location" />
     
     <TextView 
@@ -22,12 +25,15 @@
     	android:id="@+id/item" 
     	android:layout_width="wrap_content" 
     	android:layout_height="wrap_content"
+    	android:layout_centerHorizontal="true"
+    	android:layout_marginTop="30dp"
     	android:layout_below="@id/edlostlocation" />
     
     <EditText 
 	    android:id="@+id/edlostitem" 
-	    android:layout_width="match_parent" 
+	    android:layout_width="250dp" 
 	    android:layout_height="wrap_content"
+	    android:layout_centerHorizontal="true"
 	    android:layout_below="@id/item" />
     
     <TextView 
@@ -35,19 +41,25 @@
 	    android:id="@+id/date" 
 	    android:layout_width="wrap_content" 
 	    android:layout_height="wrap_content"
+	    android:layout_centerHorizontal="true"
+	    android:layout_marginTop="30dp"
 	    android:layout_below="@id/edlostitem" />
     
     <EditText 
 	    android:id="@+id/edlostdate" 
-	    android:layout_width="match_parent"
+	    android:layout_width="250dp"
 	    android:layout_height="wrap_content"
+	    android:layout_centerHorizontal="true"
+	    android:inputType="date"
 	    android:layout_below="@id/date" />
     
     <Button 
-	    android:text="Query" 
-	    android:id="@+id/query" 
-	    android:layout_width="wrap_content" 
+	    android:text="Search" 
+	    android:id="@+id/search" 
+	    android:layout_width="100dp" 
 	    android:layout_height="wrap_content"
+	    android:layout_marginTop="50dp"
+	    android:layout_centerHorizontal="true"
 	    android:layout_below="@id/edlostdate" />
     
 </RelativeLayout>

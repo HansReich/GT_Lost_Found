@@ -40,7 +40,7 @@ public class SearchLostActivity extends CustomActivity implements View.OnClickLi
 		lostlocation = (EditText)findViewById(R.id.edlostlocation);
 		lostitem = (EditText) findViewById(R.id.edlostitem);
 		lostdate = (EditText) findViewById(R.id.edlostdate);
-		query = (Button) findViewById(R.id.query);
+		query = (Button) findViewById(R.id.search);
 	}
 
 
