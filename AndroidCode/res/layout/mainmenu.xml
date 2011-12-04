@@ -5,10 +5,32 @@
     android:orientation="vertical" >
 
     <TextView
+        android:id="@+id/MenuTitle"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:text="@string/greeting"
         android:textSize="20sp" />
+    
+    <Button 
+        android:id="@+id/LostButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Search for what you lost"
+        android:textSize="18sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp" />
+    
+    <Button 
+        android:id="@+id/FoundButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Report what you've found"
+        android:textSize="18sp"
+        android:layout_below="@id/LostButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp" />
 
 </RelativeLayout>
