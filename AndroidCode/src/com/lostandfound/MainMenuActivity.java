@@ -3,9 +3,10 @@ package com.lostandfound;
 import android.os.Bundle;
 
 /**
- * The LostAndFoundActivity.
+ * The MainMenuActivity.
  */
-public class LostAndFoundActivity extends CustomActivity {
+public class MainMenuActivity extends CustomActivity {
+    public static final String TAG = "MainMenuActivity";
     
     /**
      * Called when the activity is first created.
@@ -17,5 +18,7 @@ public class LostAndFoundActivity extends CustomActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mainmenu);
+        
+        Log.d(TAG, "Creating main menu activity");
     }
 }
