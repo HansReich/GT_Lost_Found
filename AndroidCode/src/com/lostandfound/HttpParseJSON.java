@@ -90,5 +90,3 @@ public class HttpParseJSON extends Activity{
 		}
 
 	}
-
-

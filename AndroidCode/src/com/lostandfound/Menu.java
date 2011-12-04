@@ -7,7 +7,10 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+
 public class Menu extends ListActivity{
+	
+	/** The classes. */
 	String classes[] = {"Lost", "Found"};
 	/* (non-Javadoc)
 	 * @see android.app.Activity#onCreate(android.os.Bundle)
@@ -36,6 +39,4 @@ public class Menu extends ListActivity{
 			e.printStackTrace();
 		}
 	}
-
-
 }
