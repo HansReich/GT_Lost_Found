@@ -10,6 +10,9 @@ private static String TAG = "CustomActivity";
 	/** called when the activity is first made*/
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		//set the theme of the activity
+		setTheme(R.style.theme);
 	}
 	
 	public SharedPreferences getPreferences() {
