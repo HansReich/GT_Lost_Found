@@ -8,7 +8,20 @@ package com.lostandfound;
  */
 public class LostItem {
     private String item, description, foundLocation, dateFound;
-    private String contactEmail, contactPhone, pickupLocation; 
+    private String contactEmail, contactPhone, pickupLocation;
+    
+    //constructor
+    public LostItem(String item, String desc, String foundLoc, String date,
+    		String email, String phone, String pickup) {
+    	//initialize to nothing
+    	this.item = item;
+    	description = desc;
+    	foundLocation = foundLoc;
+    	dateFound = date;
+    	contactEmail = email;
+    	contactPhone = phone;
+    	pickupLocation = pickup;
+    }
     
     /**
 	 * @return the item

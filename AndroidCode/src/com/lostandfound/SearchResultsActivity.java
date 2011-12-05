@@ -34,7 +34,7 @@ public class SearchResultsActivity extends ListActivity{
 	String sLocation, sDate, sItem;
 	LostItem[] items;
 	
-	final static String URL = "http://gtmob.matthewpinkston.com/test.php";
+	final static String URL = "http://gtmob.matthewpinkston.com/get.php";
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -46,7 +46,7 @@ public class SearchResultsActivity extends ListActivity{
 		//set up the list adapter
 		pullFromDatabase();
 		List<LostItem> itemsList = Arrays.asList(items);
-		setListAdapter(new LostItemAdapter(this, R.layout.list_item, itemsList));
+		setListAdapter(new LostItemAdapter(SearchResultsActivity.this, R.layout.list_item, itemsList));
 
 		//set up the list view
 		ListView lv = getListView();
@@ -73,25 +73,34 @@ public class SearchResultsActivity extends ListActivity{
 			
 			//check if it worked
 			int status = r.getStatusLine().getStatusCode();
+			Log.d(TAG, "status code: " + status);
 			if(status == 200){
 				//convert the response into json
 				HttpEntity e = r.getEntity();
 				String data = EntityUtils.toString(e);
 				JSONArray jArray = new JSONArray(data);
 				
+				Log.d(TAG, "jarray length: " + jArray.length());
+				Log.d(TAG, "json data: " + data);
+				
 				//sort out the different items
 				items = new LostItem[jArray.length()];
+				String loc, item, day, des, email, phone, pickup;
 				for(int i=0; i<jArray.length(); i++){
 					if(jArray.isNull(i) == false){
 						JSONObject json = jArray.getJSONObject(i);
 						
-						items[i].setDescription(json.getString("des"));
-						items[i].setContactPhone(json.getString("phone"));
-						items[i].setContactEmail(json.getString("email"));
-						items[i].setPickupLocation(json.getString("pickup"));
-						items[i].setDateFound(json.getString("day"));
-						items[i].setItem(json.getString("item"));
-						items[i].setFoundLocation(json.getString("location"));
+						loc = json.getString("location");
+						item = json.getString("item");
+						day = json.getString("day");
+						des = json.getString("des");
+						email = json.getString("email");
+						phone = String.valueOf(json.getInt("phone"));
+						pickup = json.getString("pickup");
+						
+						items[i] = new LostItem(item, des, loc, day, email, phone, pickup);
+					} else {
+						Log.d(TAG, "jarray[" + i + "] was null");
 					}
 				}
 			} else {
@@ -109,6 +118,7 @@ public class SearchResultsActivity extends ListActivity{
 	/** adapter for adding locations to a list*/
 	public class LostItemAdapter extends ArrayAdapter<LostItem> {
 		int resource;
+		List<LostItem> items;
 		String response;
 		Context ctx;
 		
@@ -116,13 +126,14 @@ public class SearchResultsActivity extends ListActivity{
 		public LostItemAdapter(Context context, int resource, List<LostItem> items) {
 			super(context, resource, items);
 			this.resource = resource;
+			this.items = items;
 		}
 		
 		public View getView(int position, View convertView, ViewGroup parent) {
 			RelativeLayout itemView;
 			
 			//get current object
-			LostItem item = getItem(position);
+			LostItem item = items.get(position);
 			
 			//inflate the view
 			if(convertView==null) {
@@ -141,6 +152,9 @@ public class SearchResultsActivity extends ListActivity{
 			TextView phone = (TextView)itemView.findViewById(R.id.contactPhone);
 			TextView email = (TextView)itemView.findViewById(R.id.contactEmail);
 			TextView desc = (TextView)itemView.findViewById(R.id.itemDesc);
+			
+			Log.d(TAG, "name text: " + name);
+			Log.d(TAG, "loc text: " + loc);
 			
 			//set the text
 			name.setText(item.getItem());

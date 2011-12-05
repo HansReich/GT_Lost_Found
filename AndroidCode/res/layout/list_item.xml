@@ -30,7 +30,8 @@
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
 	    android:textSize="16sp"
-	    android:layout_toRightOf="@id/founddesc" />
+	    android:layout_toRightOf="@id/founddesc"
+	    android:layout_below="@id/itemdesc" />
 	
 	<TextView
 	    android:id="@+id/datedesc"
@@ -44,7 +45,8 @@
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
 	    android:textSize="16sp"
-	    android:layout_toRightOf="@id/datedesc" />
+	    android:layout_toRightOf="@id/datedesc"
+	    android:layout_below="@id/founddesc" />
 	
 	<TextView
 	    android:id="@+id/phonedesc"
@@ -58,7 +60,8 @@
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
 	    android:textSize="16sp"
-	    android:layout_toRightOf="@id/phonedesc" />
+	    android:layout_toRightOf="@id/phonedesc"
+	    android:layout_below="@id/datedesc" />
 	
 	<TextView
 	    android:id="@+id/emaildesc"
@@ -72,7 +75,8 @@
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
 	    android:textSize="16sp"
-	    android:layout_toRightOf="@id/emaildesc" />
+	    android:layout_toRightOf="@id/emaildesc"
+	    android:layout_below="@id/phonedesc" />
 	
 	<TextView
 	    android:id="@+id/descdesc"
@@ -87,5 +91,6 @@
 	    android:layout_height="wrap_content"
 	    android:textSize="16sp"
 	    android:paddingBottom="10dp"
-	    android:layout_toRightOf="@id/descdesc" />
+	    android:layout_toRightOf="@id/descdesc"
+	    android:layout_below="@id/emaildesc" />
 </RelativeLayout>
