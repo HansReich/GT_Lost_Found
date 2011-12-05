@@ -58,4 +58,4 @@ public class SearchResultsActivity extends CustomActivity{
 		}
 	}
 
-	}
+}
