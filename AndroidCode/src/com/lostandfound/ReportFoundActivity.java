@@ -14,6 +14,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -82,6 +83,10 @@ public class ReportFoundActivity extends CustomActivity implements View.OnClickL
 	        
 	        //let the user know it worked
 	        Toast.makeText(this, "Successfully posted the item", Toast.LENGTH_LONG).show();
+	        
+	        //go back to the main menu
+	        Intent leave = new Intent(getBaseContext(), MainMenuActivity.class);
+	        ReportFoundActivity.this.startActivity(leave);
 		}catch(UnsupportedEncodingException e){
 			Log.e(TAG, e.getMessage());
 		} catch (ClientProtocolException e) {
