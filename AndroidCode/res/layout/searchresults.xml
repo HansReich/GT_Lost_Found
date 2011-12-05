@@ -5,11 +5,11 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
 
-    <ExpandableListView
-        android:id="@+id/resultsList"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" >
-    </ExpandableListView>
+    <ScrollView 
+        android:id="@+id/resultsScrollView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+        
+    </ScrollView>
 
 </LinearLayout>

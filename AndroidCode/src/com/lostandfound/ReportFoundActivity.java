@@ -43,14 +43,7 @@ public class ReportFoundActivity extends CustomActivity implements View.OnClickL
 	}
 
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
-		try{
-			Class ourClass = Class.forName("com.lostandfound.Submit");
-			Intent ourIntent = new Intent(ReportFoundActivity.this, ourClass);
-			startActivity(ourIntent);
-		}catch(ClassNotFoundException e){
-			Log.e(TAG, e.getMessage());
-		}		
+		// TODO pull the data from the fields and send it to the server	
 	}
 
 }

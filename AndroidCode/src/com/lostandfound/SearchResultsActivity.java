@@ -18,40 +18,25 @@ import android.widget.ExpandableListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class HttpParseJSON extends CustomActivity{
-	private static final String TAG = "HttpParseJSON";
-	TextView httpStuff;
-	ExpandableListView exListV;
+public class SearchResultsActivity extends CustomActivity{
+	private static final String TAG = "SearchResultsActivity";
 	HttpClient client;
 	JSONObject json;
 	
 	final static String URL = "http://gtmob.matthewpinkston.com/test.php";
 	
-	/* (non-Javadoc)
-	 * @see android.app.Activity#onCreate(android.os.Bundle)
-	 */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.searchresults);
-		httpStuff = (TextView)findViewById(R.id.httpinfo);
-		client = new DefaultHttpClient();
-		try {
-			this.lastlostfound("");
-		} catch (ClientProtocolException e) {
-			Log.e(TAG, e.getMessage());
-		} catch (IOException e) {
-			Log.e(TAG, e.getMessage());
-		} catch (JSONException e) {
-			Log.e(TAG, e.getMessage());
-		}
+		Log.d(TAG, "creating search results");
 	}
 	
 	public void lastlostfound(String username)throws ClientProtocolException, IOException, JSONException{
 		StringBuilder url = new StringBuilder(URL);
 		url.append(username);
 		
+		HttpClient client = new DefaultHttpClient(); 
 		HttpGet get = new HttpGet(url.toString());
 		HttpResponse r = client.execute(get);
 		int status = r.getStatusLine().getStatusCode();
@@ -66,23 +51,10 @@ public class HttpParseJSON extends CustomActivity{
 					String phone = item.getString("phone");
 					String email = item.getString("email");
 					String pickup = item.getString("pickup");
-					httpStuff.append("item " + i + "\n");
-					httpStuff.append("Description: ");
-					httpStuff.append(pubdes);
-					httpStuff.append("\n");
-					httpStuff.append("Pick up Location: ");
-					httpStuff.append(pickup);
-					httpStuff.append("\n");
-					httpStuff.append("Contact Information: \n Email Address: ");
-					httpStuff.append(email);
-					httpStuff.append("\n");
-					httpStuff.append("Phone Number: ");
-					httpStuff.append(phone);
-					httpStuff.append("\n");
 				}
 			}
 		} else {
-			Toast.makeText(HttpParseJSON.this, "error", Toast.LENGTH_LONG).show();
+			Toast.makeText(SearchResultsActivity.this, "error", Toast.LENGTH_LONG).show();
 		}
 	}
 
