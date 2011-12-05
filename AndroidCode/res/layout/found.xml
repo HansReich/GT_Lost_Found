@@ -64,29 +64,13 @@
 		        android:layout_centerHorizontal="true" />
 		    
 		    <TextView 
-		        android:id="@+id/time" 
-			    android:layout_width="wrap_content" 
-			    android:text="Time Found" 
-			    android:layout_height="wrap_content"
-			    android:layout_centerHorizontal="true"
-		    	android:layout_marginTop="20dp"
-		    	android:layout_below="@id/eddate" />
-
-		    <TimePicker
-		        android:id="@+id/edtime"
-		        android:layout_width="250dp"
-		        android:layout_height="wrap_content"
-			    android:layout_centerHorizontal="true"
-		        android:layout_below="@+id/time" />
-		    
-		    <TextView 
 		        android:id="@+id/description" 
 			    android:layout_width="wrap_content" 
 			    android:text="Item Description" 
 			    android:layout_height="wrap_content"
 			    android:layout_centerHorizontal="true"
 		    	android:layout_marginTop="20dp"
-		    	android:layout_below="@id/edtime" />
+		    	android:layout_below="@id/eddate" />
 		    
 		    <EditText 
 		        android:id="@+id/eddescription" 
