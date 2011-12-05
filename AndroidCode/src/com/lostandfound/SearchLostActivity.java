@@ -7,7 +7,6 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class Lost.
  */
@@ -23,12 +22,8 @@ public class SearchLostActivity extends CustomActivity implements View.OnClickLi
 	/** The button for executing query. */
 	Button query;
 	
-	/* (non-Javadoc)
-	 * @see android.app.Activity#onCreate(android.os.Bundle)
-	 */
 	@Override
     public void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.lost);
 		initializeVars();
@@ -47,14 +42,19 @@ public class SearchLostActivity extends CustomActivity implements View.OnClickLi
 
 
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
-		try{
-		Class ourClass = Class.forName("com.lostandfound.HttpParseJSON");
-		Intent ourIntent = new Intent(SearchLostActivity.this, ourClass);
+		Intent ourIntent = new Intent(SearchLostActivity.this, SearchResultsActivity.class);
+		
+		//gather the values
+		String itemString = lostitem.getText().toString();
+		String dateString = lostdate.getMonth() + "/" + lostdate.getDayOfMonth() + "/" + lostdate.getYear();
+		String loc = lostlocation.getText().toString();
+		
+		//add the values gathered to the intent
+		ourIntent.putExtra(Common.ITEM_KEY, itemString);
+		ourIntent.putExtra(Common.DATE_KEY, dateString);
+		ourIntent.putExtra(Common.LOCATION_KEY, loc);
+		
 		startActivity(ourIntent);
-		}catch(ClassNotFoundException e){
-			e.printStackTrace();
-		}
 	}
 
 }

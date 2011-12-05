@@ -1,7 +1,5 @@
 package com.lostandfound;
 
-import java.util.Date;
-
 /**
  * represents an item that has been lost
  * 
@@ -9,43 +7,91 @@ import java.util.Date;
  *
  */
 public class LostItem {
-    private String description, foundLocation;
-    private Date whenFound;
-    private ItemType name;
-    private Location pickupLocation;
+    private String item, description, foundLocation, dateFound;
+    private String contactEmail, contactPhone, pickupLocation; 
     
-    public String getFoundLocation() {
-        return foundLocation;
-    }
-    public void setFoundLocation(String foundAt) {
-        this.foundLocation = foundAt;
-    }
-    
-    public Location getPickupLocation() {
-        return pickupLocation;
-    }
-    public void setPickupLocation(Location whereAt) {
-        this.pickupLocation = whereAt;
-    }
-    
-    public String getDescription() {
-        return description;
-    }
-    public void setDescription(String description) {
-        this.description = description;
-    }
-    
-    public Date getWhenFound() {
-        return whenFound;
-    }
-    public void setWhenFound(Date whenFound) {
-        this.whenFound = whenFound;
-    }
-    
-    public ItemType getName() {
-        return name;
-    }
-    public void setName(ItemType name) {
-        this.name = name;
-    }
+    /**
+	 * @return the item
+	 */
+	public String getItem() {
+		return item;
+	}
+	/**
+	 * @param item the item to set
+	 */
+	public void setItem(String item) {
+		this.item = item;
+	}
+	/**
+	 * @return the description
+	 */
+	public String getDescription() {
+		return description;
+	}
+	/**
+	 * @param description the description to set
+	 */
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	/**
+	 * @return the foundLocation
+	 */
+	public String getFoundLocation() {
+		return foundLocation;
+	}
+	/**
+	 * @param foundLocation the foundLocation to set
+	 */
+	public void setFoundLocation(String foundLocation) {
+		this.foundLocation = foundLocation;
+	}
+	/**
+	 * @return the dateFound
+	 */
+	public String getDateFound() {
+		return dateFound;
+	}
+	/**
+	 * @param dateFound the dateFound to set
+	 */
+	public void setDateFound(String dateFound) {
+		this.dateFound = dateFound;
+	}
+	/**
+	 * @return the contactEmail
+	 */
+	public String getContactEmail() {
+		return contactEmail;
+	}
+	/**
+	 * @param contactEmail the contactEmail to set
+	 */
+	public void setContactEmail(String contactEmail) {
+		this.contactEmail = contactEmail;
+	}
+	/**
+	 * @return the contactPhone
+	 */
+	public String getContactPhone() {
+		return contactPhone;
+	}
+	/**
+	 * @param contactPhone the contactPhone to set
+	 */
+	public void setContactPhone(String contactPhone) {
+		this.contactPhone = contactPhone;
+	}
+	/**
+	 * @return the pickupLocation
+	 */
+	public String getPickupLocation() {
+		return pickupLocation;
+	}
+	/**
+	 * @param pickupLocation the pickupLocation to set
+	 */
+	public void setPickupLocation(String pickupLocation) {
+		this.pickupLocation = pickupLocation;
+	}
 }
