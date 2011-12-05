@@ -32,6 +32,10 @@ public class MainMenuActivity extends CustomActivity {
         //set up the button listeners
         reportFound = (Button) findViewById(R.id.FoundButton);
         searchLost = (Button) findViewById(R.id.LostButton);
+        
+        Log.d(TAG, "report button nullcheck: " + (reportFound == null));
+        Log.d(TAG, "search button nullcheck: " + (searchLost == null));
+        
         reportFound.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
             	//make the intent to call the new screen

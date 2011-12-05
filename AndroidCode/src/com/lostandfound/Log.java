@@ -5,7 +5,7 @@ package com.lostandfound;
  *
  */
 public class Log {
-	private static final String	GLOBAL_TAG = "IMMobile";
+	private static final String	GLOBAL_TAG = "LostFound";
 	private	static final String	DELIMITER = "\t--\t";
 	
 	public static void v(String tag, String message) {
