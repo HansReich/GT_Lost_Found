@@ -1,8 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView
+<RelativeLayout 
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:padding="10dp"
-    android:textSize="16sp" >
-</TextView>
+    android:padding="10dp">
+    
+    <TextView
+	    android:id="@+id/itemdesc"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="Item name: "
+	    android:textSize="16sp" />
+	<TextView
+	    android:id="@+id/itemName"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:textSize="16sp"
+	    android:layout_toRightOf="@id/itemdesc" />
+	
+	<TextView
+	    android:id="@+id/founddesc"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="Found At: "
+	    android:textSize="16sp"
+	    android:layout_below="@id/itemdesc" />
+	<TextView
+	    android:id="@+id/foundLoc"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:textSize="16sp"
+	    android:layout_toRightOf="@id/founddesc" />
+	
+	<TextView
+	    android:id="@+id/datedesc"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="Found On: "
+	    android:textSize="16sp"
+	    android:layout_below="@id/founddesc" />
+	<TextView
+	    android:id="@+id/foundDate"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:textSize="16sp"
+	    android:layout_toRightOf="@id/datedesc" />
+	
+	<TextView
+	    android:id="@+id/phonedesc"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="Contact Phone: "
+	    android:textSize="16sp"
+	    android:layout_below="@id/datedesc" />
+	<TextView
+	    android:id="@+id/contactPhone"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:textSize="16sp"
+	    android:layout_toRightOf="@id/phonedesc" />
+	
+	<TextView
+	    android:id="@+id/emaildesc"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="Contact Email: "
+	    android:textSize="16sp"
+	    android:layout_below="@id/phonedesc" />
+	<TextView
+	    android:id="@+id/contactEmail"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:textSize="16sp"
+	    android:layout_toRightOf="@id/emaildesc" />
+	
+	<TextView
+	    android:id="@+id/descdesc"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="Description: "
+	    android:textSize="16sp"
+	    android:layout_below="@id/emaildesc" />
+	<TextView
+	    android:id="@+id/itemDesc"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:textSize="16sp"
+	    android:paddingBottom="10dp"
+	    android:layout_toRightOf="@id/descdesc" />
+</RelativeLayout>

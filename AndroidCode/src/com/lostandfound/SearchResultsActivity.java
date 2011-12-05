@@ -1,6 +1,8 @@
 package com.lostandfound;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -14,9 +16,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.ListActivity;
+import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class SearchResultsActivity extends ListActivity{
@@ -24,6 +32,7 @@ public class SearchResultsActivity extends ListActivity{
 	HttpClient client;
 	JSONObject json;
 	String sLocation, sDate, sItem;
+	LostItem[] items;
 	
 	final static String URL = "http://gtmob.matthewpinkston.com/test.php";
 	
@@ -35,6 +44,9 @@ public class SearchResultsActivity extends ListActivity{
 		setTheme(R.style.MainTheme);
 		
 		//set up the list adapter
+		pullFromDatabase();
+		List<LostItem> itemsList = Arrays.asList(items);
+		setListAdapter(new LostItemAdapter(this, R.layout.list_item, itemsList));
 
 		//set up the list view
 		ListView lv = getListView();
@@ -48,40 +60,97 @@ public class SearchResultsActivity extends ListActivity{
 		sItem = getIntent().getStringExtra(Common.ITEM_KEY);
 	}
 	
-	public void lastlostfound(String username)throws ClientProtocolException, IOException, JSONException{
-		//necessary variables
-		String desc, phone, email, pickup, date, item, location;
-		HttpClient client = new DefaultHttpClient(); 
-		HttpGet get = new HttpGet(URL);
-		
-		//poll the database
-		HttpResponse r = client.execute(get);
-		
-		//check if it worked
-		int status = r.getStatusLine().getStatusCode();
-		if(status == 200){
-			//convert the response into json
-			HttpEntity e = r.getEntity();
-			String data = EntityUtils.toString(e);
-			JSONArray jArray = new JSONArray(data);
+	/** pull data from the database*/
+	public void pullFromDatabase() {
+		try {
+			//necessary variables
+			HttpClient client = new DefaultHttpClient(); 
+			HttpGet get = new HttpGet(URL);
 			
-			//sort out the different items
-			LostItem[] items = new LostItem[jArray.length()];
-			for(int i=0; i<jArray.length(); i++){
-				if(jArray.isNull(i) == false){
-					JSONObject json = jArray.getJSONObject(i);
-					desc = json.getString("des");
-					phone = json.getString("phone");
-					email = json.getString("email");
-					pickup = json.getString("pickup");
-					date = json.getString("day");
-					item = json.getString("item");
-					location = json.getString("location");
+			//poll the database
+			HttpResponse r;
+			r = client.execute(get);
+			
+			//check if it worked
+			int status = r.getStatusLine().getStatusCode();
+			if(status == 200){
+				//convert the response into json
+				HttpEntity e = r.getEntity();
+				String data = EntityUtils.toString(e);
+				JSONArray jArray = new JSONArray(data);
+				
+				//sort out the different items
+				items = new LostItem[jArray.length()];
+				for(int i=0; i<jArray.length(); i++){
+					if(jArray.isNull(i) == false){
+						JSONObject json = jArray.getJSONObject(i);
+						
+						items[i].setDescription(json.getString("des"));
+						items[i].setContactPhone(json.getString("phone"));
+						items[i].setContactEmail(json.getString("email"));
+						items[i].setPickupLocation(json.getString("pickup"));
+						items[i].setDateFound(json.getString("day"));
+						items[i].setItem(json.getString("item"));
+						items[i].setFoundLocation(json.getString("location"));
+					}
 				}
+			} else {
+				Toast.makeText(SearchResultsActivity.this, "error", Toast.LENGTH_LONG).show();
 			}
-		} else {
-			Toast.makeText(SearchResultsActivity.this, "error", Toast.LENGTH_LONG).show();
-		}
+		} catch (ClientProtocolException e) {
+			Log.e(TAG, e.getMessage());
+		} catch (IOException e) {
+			Log.e(TAG, e.getMessage());
+		} catch (JSONException e) {
+			Log.e(TAG, e.getMessage());
+		}	
 	}
 
+	/** adapter for adding locations to a list*/
+	public class LostItemAdapter extends ArrayAdapter<LostItem> {
+		int resource;
+		String response;
+		Context ctx;
+		
+		//constructor
+		public LostItemAdapter(Context context, int resource, List<LostItem> items) {
+			super(context, resource, items);
+			this.resource = resource;
+		}
+		
+		public View getView(int position, View convertView, ViewGroup parent) {
+			RelativeLayout itemView;
+			
+			//get current object
+			LostItem item = getItem(position);
+			
+			//inflate the view
+			if(convertView==null) {
+				itemView = new RelativeLayout(getContext());
+				String inflater = Context.LAYOUT_INFLATER_SERVICE;
+				LayoutInflater vi = (LayoutInflater) getContext().getSystemService(inflater);
+				vi.inflate(resource,  itemView, true);
+			} else {
+				itemView = (RelativeLayout) convertView;
+			}
+			
+			//get the text boxes from the list item
+			TextView name = (TextView)itemView.findViewById(R.id.itemName);
+			TextView loc = (TextView)itemView.findViewById(R.id.foundLoc);
+			TextView date = (TextView)itemView.findViewById(R.id.foundDate);
+			TextView phone = (TextView)itemView.findViewById(R.id.contactPhone);
+			TextView email = (TextView)itemView.findViewById(R.id.contactEmail);
+			TextView desc = (TextView)itemView.findViewById(R.id.itemDesc);
+			
+			//set the text
+			name.setText(item.getItem());
+			loc.setText(item.getFoundLocation());
+			date.setText(item.getDateFound());
+			phone.setText(item.getContactPhone());
+			email.setText(item.getContactEmail());
+			desc.setText(item.getDescription());
+			
+			return itemView;
+		}
+	}
 }
