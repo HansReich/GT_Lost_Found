@@ -53,8 +53,20 @@ public class SearchResultsActivity extends ListActivity{
 		item = item.replace(" ", "%20");
 		loc = loc.replace(" ", "%20");
 		
+		Log.d(TAG, "date: " + date);
+		Log.d(TAG, "item: " + item);
+		Log.d(TAG, "loc: -" + loc + "-");
+		
 		//send it to the database
-		pullFromDatabase(item, date, loc);
+		boolean dataPull = pullFromDatabase(item, date, loc);
+		
+		//check for failed
+		if(!dataPull) {
+			//setContentView(R.layout.failure);
+			Log.d(TAG, "setting view to failure");
+			Toast.makeText(getBaseContext(), "Sorry, nothing found", Toast.LENGTH_LONG).show();
+			return;
+		}
 		
 		//set up the list adapter
 		List<LostItem> itemsList = Arrays.asList(items);
@@ -65,11 +77,6 @@ public class SearchResultsActivity extends ListActivity{
 		lv.setTextFilterEnabled(true);
 		
 		Log.d(TAG, "creating search results");
-		
-		//get the values from search
-		sLocation = getIntent().getStringExtra(Common.LOCATION_KEY);
-		sDate = getIntent().getStringExtra(Common.DATE_KEY);
-		sItem = getIntent().getStringExtra(Common.ITEM_KEY);
 	}
 	
 	/** pull data from the database
@@ -78,24 +85,26 @@ public class SearchResultsActivity extends ListActivity{
 	 * @param date the date an item was lost on
 	 * @param loc the location an item was lost
 	 */
-	public void pullFromDatabase(String itemName, String date, String location) {
+	public boolean pullFromDatabase(String itemName, String date, String location) {
 		try {
 			String url = URL;
 			
 			//tack on the search parameters if provided
-			if(itemName != null) {
+			if(!itemName.equals("")) {
 				url = url + "item=" + itemName;
 			}
-			if(date != null) {
+			if(!date.equals("")) {
 				url = url + "&day=" + date;
 			}
-			if(location != null) {
+			if(!location.equals("")) {
 				url = url + "&location=" + location;
 			}
 			
+			Log.d(TAG, "search url = " + url);
+			
 			//set up the http connection
 			HttpClient client = new DefaultHttpClient(); 
-			HttpGet get = new HttpGet(URL);
+			HttpGet get = new HttpGet(url);
 			
 			//poll the database
 			HttpResponse r;
@@ -108,6 +117,15 @@ public class SearchResultsActivity extends ListActivity{
 				//convert the response into json
 				HttpEntity e = r.getEntity();
 				String data = EntityUtils.toString(e);
+				
+				//null check
+				Log.d(TAG, "data = " + data);
+				if(data.equals("null")) {
+					return false;
+				} else {
+					Log.d(TAG, "data null check missed");
+				}
+				
 				JSONArray jArray = new JSONArray(data);
 				
 				Log.d(TAG, "jarray length: " + jArray.length());
@@ -133,8 +151,11 @@ public class SearchResultsActivity extends ListActivity{
 						Log.d(TAG, "jarray[" + i + "] was null");
 					}
 				}
+				
+				return true;
 			} else {
 				Toast.makeText(SearchResultsActivity.this, "error", Toast.LENGTH_LONG).show();
+				return false;
 			}
 		} catch (ClientProtocolException e) {
 			Log.e(TAG, e.getMessage());
@@ -142,7 +163,9 @@ public class SearchResultsActivity extends ListActivity{
 			Log.e(TAG, e.getMessage());
 		} catch (JSONException e) {
 			Log.e(TAG, e.getMessage());
-		}	
+		}
+		
+		return false;
 	}
 
 	/** adapter for adding locations to a list*/
