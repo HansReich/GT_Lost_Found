@@ -34,7 +34,7 @@ public class SearchResultsActivity extends ListActivity{
 	String sLocation, sDate, sItem;
 	LostItem[] items;
 	
-	final static String URL = "http://gtmob.matthewpinkston.com/get.php";
+	final static String URL = "http://gtmob.matthewpinkston.com/get1.php?";
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -43,8 +43,20 @@ public class SearchResultsActivity extends ListActivity{
 		//set the theme of the activity
 		setTheme(R.style.MainTheme);
 		
+		//get the parameters from the intent
+		String date = getIntent().getStringExtra(Common.DATE_KEY);
+		String item = getIntent().getStringExtra(Common.ITEM_KEY);
+		String loc = getIntent().getStringExtra(Common.LOCATION_KEY);
+		
+		//replace any spaces
+		date = date.replace(" ", "%20");
+		item = item.replace(" ", "%20");
+		loc = loc.replace(" ", "%20");
+		
+		//send it to the database
+		pullFromDatabase(item, date, loc);
+		
 		//set up the list adapter
-		pullFromDatabase();
 		List<LostItem> itemsList = Arrays.asList(items);
 		setListAdapter(new LostItemAdapter(SearchResultsActivity.this, R.layout.list_item, itemsList));
 
@@ -60,10 +72,28 @@ public class SearchResultsActivity extends ListActivity{
 		sItem = getIntent().getStringExtra(Common.ITEM_KEY);
 	}
 	
-	/** pull data from the database*/
-	public void pullFromDatabase() {
+	/** pull data from the database
+	 * 
+	 * @param item the name of the item type to be searched for
+	 * @param date the date an item was lost on
+	 * @param loc the location an item was lost
+	 */
+	public void pullFromDatabase(String itemName, String date, String location) {
 		try {
-			//necessary variables
+			String url = URL;
+			
+			//tack on the search parameters if provided
+			if(itemName != null) {
+				url = url + "item=" + itemName;
+			}
+			if(date != null) {
+				url = url + "&day=" + date;
+			}
+			if(location != null) {
+				url = url + "&location=" + location;
+			}
+			
+			//set up the http connection
 			HttpClient client = new DefaultHttpClient(); 
 			HttpGet get = new HttpGet(URL);
 			
